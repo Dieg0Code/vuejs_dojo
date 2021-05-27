@@ -171,3 +171,40 @@ Podemos hacer lo siguiente:
 </h2>
 <h2 v-else>Sin cantidad: {{cantidad}}</h2>
 ```
+
+### v-for
+
+Podemos recorrer array y array de objetos con directivas de Vue: `v-for`
+
+```javascript
+data() {
+    return {
+        cuenta: 'Vista',
+        cantidad: 200,
+        estado: true,
+        servicios: ['Transferencias', 'Pagos', 'Giros']
+    }
+}
+```
+
+```html
+<hr>
+<h2>Servicios disponibles:</h2>
+<ul>
+    <li v-for="item in servicios">{{item}}</li>
+</ul>
+```
+
+#### Key
+
+Siempre que trabajemos con `v-for`, Vue nos pedirá que estos elementos tengan una llave única, podemos agregar por ahora un index.
+
+```html
+<ul>
+    <li 
+    v-for="(item, index) in servicios" :key="index"
+    >
+        {{index + 1}} - {{item}}
+    </li>
+</ul>
+```
