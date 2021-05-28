@@ -12,9 +12,9 @@
 <body>
   <div id="app">
 
-      <h1>{{ titulo }}</h1>
+      <h1>{{ mayusculasTexto }}</h1>
         <h2 class="bg-dark"
-            :class="[cantidad > 500 ? 'text-success' : 'text-danger']"
+            :class="colorCantidad"
         >
           Mi saldo disponible es: {{ cantidad }}
         </h2>

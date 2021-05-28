@@ -289,3 +289,23 @@ const app = Vue.createApp({
     Cantidad: {{cantidad}}
 </h2>
 ```
+
+### Computed
+
+Las propiedades computadas nos sirven para generar cálculos en nuestros componentes, por ejemplo no se recomienda colocar demasiada lógica en nuestras plantillas HTML, ya que dificulta la interpretación de nuestros componentes.
+
+```js
+:class="[cantidad > 100 ? 'text-success' : 'text-danger']"
+```
+
+```js
+computed: {
+    colorCantidad() {
+        return this.cantidad > 100 ? 'text-success' : 'text-danger'
+    }
+}
+```
+
+```js
+:class="colorCantidad"
+```
