@@ -240,3 +240,39 @@ const app = Vue.createApp({
     }
 })
 ```
+
+### Practica
+
+Vamos a repasar lo aprendido con el botón disminuir:
+
+```html
+<button v-on:click="disminuirSaldo" :disabled="desactivar">Disminuir Saldo</button>
+```
+
+```javascript
+const app = Vue.createApp({
+    data() {
+        return {
+            cuenta: 'Vista',
+            cantidad: 0,
+            estado: true,
+            servicios: ['Transferencias', 'Pagos', 'Giros'],
+            desactivar: false
+        }
+    },
+    methods: {
+        agregarSaldo() {
+            this.cantidad = this.cantidad + 100
+            this.desactivar = false
+        },
+        disminuirSaldo() {
+            if (this.cantidad === 0) {
+                alert('llegaste al final')
+                this.desactivar = true
+                return
+            }
+            this.cantidad = this.cantidad - 100
+        }
+    }
+})
+```

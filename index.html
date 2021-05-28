@@ -42,6 +42,10 @@
       <button v-on:click="agregarSaldo">Agregar Saldo</button>
       <button @click="agregarSaldo">Agregar Saldo</button>
 
+      <hr>
+
+      <button @click="disminuirSaldo" :disabled="desactivar">Disminuir Saldo</button>
+
   </div>
   
   <script src="main.js"></script>
