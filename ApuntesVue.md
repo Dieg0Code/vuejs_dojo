@@ -276,3 +276,16 @@ const app = Vue.createApp({
     }
 })
 ```
+
+### Class dinámico
+
+```html
+<!-- operador ternario -->
+<h2 
+    class="bg-dark"
+    :class="[cantidad > 100 ? 'text-success' : 'text-danger']"
+    :style="{'font-size': '50px'}"
+>
+    Cantidad: {{cantidad}}
+</h2>
+```
