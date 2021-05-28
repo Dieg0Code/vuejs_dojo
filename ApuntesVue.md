@@ -208,3 +208,35 @@ Siempre que trabajemos con `v-for`, Vue nos pedirá que estos elementos tengan u
     </li>
 </ul>
 ```
+
+### v-on:click [Eventos]
+
+Agreguemos un evento que nos permita modificar la cantidad o saldo de nuestra cuenta:
+
+```html
+<button v-on:click="agregarSaldo">Agregar Saldo</button>
+```
+
+Abreviado:
+
+```html
+<button @click="agregarSaldo">Agregar Saldo</button>
+```
+
+```javascript
+const app = Vue.createApp({
+    data() {
+        return {
+            cuenta: 'Vista',
+            cantidad: 200,
+            estado: true,
+            servicios: ['Transferencias', 'Pagos', 'Giros'],
+        }
+    },
+    methods: {
+        agregarSaldo() {
+            this.cantidad = this.cantidad + 100
+        }
+    }
+})
+```

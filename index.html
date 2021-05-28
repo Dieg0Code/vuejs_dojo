@@ -37,11 +37,16 @@
           <li v-for="(item, index) in servicios" :key="index">{{ index }} - {{ item }}</li>
       </ul>
 
+      <hr>
+
+      <button v-on:click="agregarSaldo">Agregar Saldo</button>
+      <button @click="agregarSaldo">Agregar Saldo</button>
+
   </div>
   
   <script src="main.js"></script>
   <script>
-      const mountedApp = app.mount('#app'); 
+      const mountedApp = app.mount('#app');
   </script>
 </body>
 </html>
