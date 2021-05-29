@@ -309,3 +309,44 @@ computed: {
 ```js
 :class="colorCantidad"
 ```
+
+### Computed vs Methods
+
+Con ambos se puede lograr el mismo resultado pero **las propiedades computadas se almacenan en el caché**. Una propiedad computada solo se volverá a evaluar cuando alguna de sus dependencias haya cambiado.
+
+En comparación, una invocación de método **siempre** ejecutará la función cada vez que ocurre una re-renderizacion.
+
+¿Por qué necesitamos caché? Imagina que tenemos una costosa propiedad computada **A**, que requiere hacer un bucle a través de una gran matriz y hace muchos cálculos. Entonces podemos tener otras propiedades computadas que a su vez dependen de **A**. Sin caché, estaríamos ejecutando el captador de **A** muchas veces más de lo necesario. En los casos en que no desee el almacenamiento en caché, utilice un método en su lugar.
+
+### Componentes
+
+Son instancias reutilizables, así podemos ir estructurando la lógica de nuestro proyecto en diferentes secciones o partes.
+
+- Es muy importante el orden en este ejemplo, ya que por ahora estamos conociendo los fundamentos, posteriormente veremos ejemplos más avanzados.
+- Nombre del componente en minúsculas y separadas de guión medio para evitar errores.
+
+```js
+// components/Footer.js
+app.component('footer-banco', {
+    template: 
+        /*html*/`
+        <div>
+            <h3>Pie de página, año 2020</h3>
+        </div>
+        `
+})
+```
+
+```html
+<hr>
+<footer-banco />
+<footer-banco />
+<footer-banco />
+<footer-banco />
+
+<script src="main.js"></script>
+<script src="components/Footer.js"></script>
+<script>
+    const mountedApp = app.mount('#app');
+</script>
+```
