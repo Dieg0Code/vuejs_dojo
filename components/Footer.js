@@ -1,13 +1,14 @@
 app.component("footer-banco", {
-  template: /*html*/ `
+    props: ["valor", "fecha"],
+    template: /*html*/ `
     <div class="bg-dark py-3 mt-2 text-white">
-        <h3>{{ texto }} - {{ cantidad }}</h3>
+        <h3>{{ texto }} - {{ valor }}</h3>
+        <p>{{  fecha }}</p>
     </div>
     `,
     data() {
         return {
-            texto: 'Footer de mi sitio web dinamico',
-            cantidad: 1000
-        }
-    }
+            texto: "Footer de mi sitio web dinamico",
+        };
+    },
 });

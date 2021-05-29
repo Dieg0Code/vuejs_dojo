@@ -350,3 +350,77 @@ app.component('footer-banco', {
     const mountedApp = app.mount('#app');
 </script>
 ```
+
+### Props
+
+Si quisieramos enviar información desde nuestro componente padre a nuestro nuevo componente, podemos utilizar los `props`
+
+```js
+app.component('footer-banco', {
+    props: ['cantidad'],
+    template: 
+        /*html*/`
+        <div>
+            <h3>Pie de página, año 2020 - cantidad: {{cantidad}}</h3>
+        </div>
+        `
+})
+```
+
+```html
+<footer-banco cantidad="mil pesos" />
+```
+
+Cantidad dinámica con `v-bind`:
+
+```html
+<footer-banco :cantidad="cantidad" />
+```
+
+Más de un props:
+
+```js
+props: ['cantidad', 'texto'],
+```
+
+```html
+<footer-banco :cantidad="cantidad" texto="Pie de página" />
+```
+
+Tipo de dato:   
+
+```js
+props: {
+    cantidad: Number,
+    texto: String
+},
+```
+
+Documentación oficial:
+
+```js
+props: {
+  title: String,
+  likes: Number,
+  isPublished: Boolean,
+  commentIds: Array,
+  author: Object,
+  callback: Function,
+  contactsPromise: Promise // or any other constructor
+}
+```
+
+#### CamelCase
+
+Dentro del objeto props podemos agregar palabras compuestas con camelCase pero en el llamado de nuestro componente tiene que ir separado por un guión:
+
+```js
+props: {
+    cantidad: Number,
+    textoFooter: String,
+}
+```
+
+```html
+<footer-banco :cantidad="cantidad" texto-footer="Pie de página" />
+```
